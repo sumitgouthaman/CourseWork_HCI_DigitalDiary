@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diario</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="css/digitaldiary.css" rel="stylesheet">
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-controller="diaryController">
+    <div id="flipdiary">
+        <div class="hard">
+            <div class="front-page">
+                <div class="front-page-content">
+                    <h1 class="text-center">{{title}}</h1>
+                    <br/>
+                    <h2 class="text-center">2014</h2>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h3 class="text-center">Sumit Gouthaman</h3>
+                </div>
+            </div>
+        </div>
+        <div class="diary-page">
+            <div class="page-content">
+                <h2>What's on your mind?</h2>
+                <hr/>
+                <h3>Title</h3>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="entrytitle" placeholder="">
+                </div>
+                <h3>Content</h3>
+                <textarea id="entrycontent" class="form-control" rows="20"></textarea>
+                <h3 class="text-right">- Sumit, {{currentdate | date:dateFormat}}</h3>
+            </div>
+        </div>
+        <div class="diary-page" ng-repeat="entry in entries track by $index">
+            <div class="page-content">
+                <h2>{{entry.title}}</h2>
+                <hr/>
+                <h3>{{entry.content}}</h3>
+                <br/>
+                <h4 class="text-right">- {{entry.date}}</h4>
+            </div>
+        </div>
+        <div class="hard"></div>
+        <div class="hard"></div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <!-- Angular -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-touch.min.js"></script>
+    <!-- App Logic -->
+    <script src="js/diary-controller.js"></script>
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Turn.js -->
+    <script src="js/turn.min.js"></script>
+
+    <script>
+        $(window).ready(function() {
+            $('#flipdiary').turn({
+                display: 'double',
+                acceleration: true,
+                gradients: !$.isTouch,
+                elevation: 50,
+                when: {
+                    turned: function(e, page) {
+                        /*console.log('Current view: ', $(this).turn('view'));*/
+                    }
+                }
+            });
+        });
+
+
+        $(window).bind('keydown', function(e) {
+
+            if (e.keyCode == 37)
+                $('#flipdiary').turn('previous');
+            else if (e.keyCode == 39)
+                $('#flipdiary').turn('next');
+
+        });
+    </script>
+</body>
+
+</html>

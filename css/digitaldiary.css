@@ -1,0 +1,62 @@
+body {
+    background: #ccc;
+}
+#flipdiary {
+    width: 1152px;
+    height: 752px;
+}
+.front-page,
+.diary-page {
+    height: 100%;
+    width: 100%;
+}
+.front-page{
+    background-color: #812020;
+}
+.diary-page{
+    background-color: #fffbc5;
+}
+.front-page-content,
+.page-content {
+    height: 97%;
+    width: 97%;
+    margin: 10px;
+    border-width: 2px;
+    border-color: #7b94ff;
+    border-radius: 5px;
+    border-style: dashed;
+}
+.front-page-content{
+    border-color: #ffd700;
+}
+#flipdiary .shadow,
+#flipdiary.shadow{
+  -webkit-box-shadow: 0 4px 10px #666;
+  -moz-box-shadow: 0 4px 10px #666;
+  -ms-box-shadow: 0 4px 10px #666;
+  -o-box-shadow: 0 4px 10px #666;
+  box-shadow: 0 4px 10px #666;
+}
+.front-page-content{
+    font-family: 'Great Vibes', cursive;
+    color: #ffd700;
+}
+.page-content{
+    font-family: 'Great Vibes', cursive;
+}
+.front-page-content h1{
+    font-size: 100px;
+}
+.front-page-content h2{
+    font-size: 75px;
+}
+.front-page-content h3{
+    font-size: 40px;
+}
+.page-content{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+input{
+    font-family: sans-serif;
+}
